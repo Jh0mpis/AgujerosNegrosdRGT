@@ -1,0 +1,46 @@
+\chapter{Introducci\'{o}n}
+
+Le teoría de la Relatividad General (RG) es la teoría de gravitación más acogida y aceptada por la comunidad científica, esto debido a la impecable precisión en sus predicciones \cite{MassiveGravity}. A pesar de la efectividad de RG la existencia de alternativas consistentes para describir la gravedad es esencial para probar la teoría \cite{MassiveGravity}. Además, los problemas abiertos, como el problema de la constante cosmológica, invitan a considerar alternativas a la RG \cite{MassiveGravity,TheoreticalAspectsOfMassiveGRavity}.\\
+
+Desde el punto de vista de la física moderna de campos y partículas la RG, con o sin constante cosmológica, es la única teoría de campos para partículas sin masa y espín-2 en cuatro dimensiones \cite{Helicity}. Por tanto, desde este punto de vista, una de las extensiones posibles vendría dada por la formulación de la gravedad masiva \cite{TheoreticalAspectsOfMassiveGRavity}.\\
+
+La gravedad masiva es una teoría que propaga un campo para una partícula masiva con espín 2, la forma más sencilla de construir esta teoría es añadiendo un término del campo a la acción de Einstein-Hilbert, dotando de masa el gravitón, $m_g$, es decir la RG es recuperada cuando  $m_g\rightarrow 0$ \cite{TheoreticalAspectsOfMassiveGRavity}. La idea de dotar de masa al gravitón no es una idea antigua, una de las primeras propuestas viene de la mano de Fierz y Pauli en 1939 \cite{MassiveGravity}. Si bien la teoría de partículas con espín 2 es simple de  derivar, esta se hace más compleja cuando las partículas de la teoría deben interactuar con otras, cosa que se esperaría del gravitón \cite{MassiveGravity}. \\
+
+
+\section{Término de masa de Fierz-Pauli}
+
+Inicialmente, la densidad lagrangiana para una sola partícula masiva de espín 2 vendría dada por un tensor simétrico $\Pi_{\mu\nu}$  \cite{TheoreticalAspectsOfMassiveGRavity}, a priori se pueden escoger dos posibles términos de masa $[\Pi^2]$ y $[\Pi]^2$\cite{MassiveGravity}, donde $[A]$ es la traza del tensor $A_{\mu\nu}$, por tanto el término general puede escribirse como 
+
+\begin{equation}
+    \mathcal{L}_{masa}=-\dfrac{1}{8}m_g^2([\Pi^2]-[\Pi]^2).
+    \label{eq:Fierz-Pauli}
+\end{equation}
+
+El término de la ecuación \eqref{eq:Fierz-Pauli} es conocido como el término de masa de Fierz-Pauli. La presencia de este término de masa rompe el difeomorfismo de la teoría RG \cite{MassiveGravity}, para recuperarlo es necesario incluir cuatro campos de St\"{u}ckelberg $\phi_\mu$ obteniendo un lagrangiano de la forma 
+
+\begin{equation}
+    \mathcal{L}_{masa}=-\dfrac{1}{8}m_g^2([(\Pi_{\mu\nu}+2\partial_\mu\phi_\nu)^2]-([\Pi]+2\partial_\alpha\phi^\alpha)^2).
+    \label{eq:Fierz-Pauli-Stuckelberg}
+\end{equation}
+
+En la ecuación \eqref{eq:Fierz-Pauli-Stuckelberg} se usó el truco de los campos de St\"{u}ckelberg, este truco consiste en introducir nuevos campos escalares y nuevos gauges a la acción de tal manera que esto no altere la teoría \cite{TheoreticalAspectsOfMassiveGRavity}. Cada uno de los campos $\phi^a$ puede ser ajustados con diferentes gauges, de tal modo que la teoría sea dinámicamente equivalente \cite{TheoreticalAspectsOfMassiveGRavity,Helicity}.\\
+
+\section{Discontinuidad Van Dam-Veltman-Zakharov y fantasmas Deser-Boulware}
+
+Una de las maneras de comprobar el término de Fierz-Pauli es corroborar las predicciones de la relatividad general; una de ellas la deflexión de la luz producida por la curvatura en el espacio tiempo \cite{TheoreticalAspectsOfMassiveGRavity}. Por una parte, usando los resultados de la relatividad general, un fotón de prueba sometido a un campo gravitacional presenta una deflexión de
+\begin{equation}
+    \alpha_{Einstein-Hilbert}=\dfrac{4GM}{q},
+\end{equation} 
+donde $q$ es un parámetro \cite{Discontinuidad}. Por otro lado, usando el término de Fierz-Pauli de la ecuación \eqref{eq:Fierz-Pauli-Stuckelberg} y haciendo tender $m_g\rightarrow0$, se encuentra que la deflexión será ahora \cite{TheoreticalAspectsOfMassiveGRavity,Discontinuidad}
+
+\begin{equation}
+    \alpha_{Fierz-Pauli}=\dfrac{3GM}{q}=\dfrac{4}{3}\alpha_{Einstein-Hilbert},
+\end{equation}
+
+presentando una diferencia de al rededor del 25\% del término predicho por la RG. A este problema en el término de masa de  Fierz-Pauli es conocido como la discontinuidad de van Dam, Veltman y Zakharov (discontinuidad vDVZ), esto representa una violación a la intuición de la física, la cual debería ser continua en los parámetros de la teoría \cite{TheoreticalAspectsOfMassiveGRavity} (también es posible revisar \cite{VanDamAndVeltmanDiscontinuity,ZakharovDiscontinuity}).\\
+
+Dado que la teoría consiste en un campo de espín 2 con partículas masivas, esta tienen cinco polarizaciones posibles lo que se traduce en 5 grados de libertad (dos asociados a los modos de helicidad-2, dos a los modos de helicidad-1 y uno a los modos de helicidad-0) \cite{Helicity}. Sin embargo, al contar los modos de libertad del termino de masa de Fierz-Pauli se encuentra que los potenciales de St\"{u}ckelberg introducen un grado adicional de libertad, el cual es conocido como un fantasma Boulware-Deser \cite{MassiveGravity, Helicity, ExorcisingTheGhost}.\\
+
+Sería posteriormente Veltman quién demostraría que la discontinuidad vDVZ podía evitarse si el término de masa de Fierz-Pauli se expande en ordenes superiores de $h_{\mu\nu}$ y ,finalmente, Claudia de Rham, Gregory Gabadadze y Andrew Tolley podrían proponer la teoría que presenta ausencia de fantasmas de Boulware-Deser y discontinuidad vDVZ\cite{ResummationOfMG,GeneralizationOfFP}.\\ 
+
+El presente trabajo de grado está organizado como sigue: Inicialmente se revisarán las propiedades de la gravedad masiva dRGT en el capítulo \ref{chap:dRGT}. Luego, en el capítulo \ref{chap:staticSolution} se comprobará una solución estática a las ecuaciones de campo de la teoría y sus propiedades físicas de interés. A lo largo del capítulo \ref{chap:Rotante} se aplicará el algoritmo de Janis-Newman para obtener una solución rotante para la teoría de gravedad masiva y se estudiarán, además, sus propiedades físicas. Finalmente, en el capitulo \ref{chap:Conclusiones} se realizarán las conclusiones y consideraciones del trabajo. A lo largo de todo el trabajo se usó la convención $(-,+,+,+)$ junto con $c=1=\hbar$ con $c$ la velocidad de la luz en el vacío y $\hbar$ la constante reducida de Planck.

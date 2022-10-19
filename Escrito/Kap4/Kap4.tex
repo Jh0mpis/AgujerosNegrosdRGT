@@ -1,0 +1,265 @@
+\chapter{Solución rotante}
+\label{chap:Rotante}
+
+Si bien la solución estudiada en el capítulo \ref{chap:staticSolution} es una solución que resuelve las ecuaciones de campo de la ecuación \eqref{eq:fieldEquations}, esta solución es una solución estática cuyo tensor momento energía $T_{\mu\nu}=0$. Una de las soluciones de las ecuaciones de campo de la relatividad General ($m_g=0$) es la solución de agujero negro tipo Kerr, esta solución corresponde a un agujero negro con masa que además gira.\\
+
+La solución de tipo Kerr, es una solución que es mucho más compleja comparada con la solución de Schwarzschild, es por ello que se han estudiado maneras de generar la solución de alguna manera \cite{JN-RotatingAndNUTCharged}. Uno de los algoritmos que han probado servir para generar soluciones rotantes es el algoritmo de Janis Newman, a través del cual se generó la solución rotante de Kerr, a partir de la solución de Schwarszchild \cite{JN-RotatingAndNUTCharged}.
+
+\section{Algoritmo de Janis-Newman}
+
+El algoritmo de Janis-Newman es una de las técnicas para generar métricas rotantes a través de métricas estáticas \cite{JN-RotatingAndNUTCharged}. Si bien en un principio se postuló como un algoritmo para generar soluciones en relatividad general, pues se ha considerado como una derivación alternativa de la métrica de Kerr que posteriormente se usó para obtener el agujero negro de Kerr-Newman \cite{JN-RotatingAndNUTCharged, AnExtensionOfJN}, esta ha funcionado al aplicarse en otras teorías \cite{JN-RotatingAndNUTCharged}.\\
+
+El algoritmo puede resumirse como sigue \cite{JN-RotatingAndNUTCharged, AnExtensionOfJN}: 
+
+\begin{enumerate}
+    \item Determinar la métrica denominada como  "semilla", y usar las coordenadas de Eddington-Finkelstein, haciendo una transformación de $(t,r,\theta,\phi)$ a $(u,r,\theta\phi)$.
+    \item Realizar una transformación compleja de coordenadas a la estructura tensorial $dx^\mu$ y la función $f$. La transformación de coordenadas puede ser realizada usando el formalismo de tetradas de Newman-Penrose.
+    \item Realizar una transformación de coordenadas para simplificar la métrica, como puede ser el sistema de coordenadas de Boyer-Lindquist.
+\end{enumerate}
+
+\subsection{Janis-Newman: Formalismo de Newman-Penrose}
+
+Una de las formas de llevar a cabo el algoritmo de Janis-Newman es usando el formalismo de Newman-Penrose de tetradas. El formalismo de Newman-Penrose consiste en la escogencia de un una base coordenada especial, llamada una base nula \cite{ThePotentialOfFildsInEinstein}.\\
+
+En lugar de una base ortogonal, Newman y Penrose escogieron una base nula con un par de tensores reales $l^\mu$, $n^\mu$ y un par de tensores conjugados $m^\mu$ y $\bar{m}^\mu$ tal que
+
+\begin{gather}
+    l^\mu m_\mu = l^\mu \bar{m}_\mu = n^\mu m_\mu = n^\mu \bar{m}_\mu = 0, \label{eq:Nulity0}\\
+    l^\mu l_\mu = n^\mu n_\mu = m^\mu m_\mu = \bar{m}^\mu\bar{m}_\mu = 0, \label{eq:Nulity1}
+\end{gather}
+
+junto con la condición de normalización 
+
+\begin{equation}
+    -l^\mu n_\mu = m^\mu \bar{m}_\mu = 1,
+    \label{eq:Unitarity}
+\end{equation}
+
+lo anterior implica que la matriz que transforma en el espacio de las tetradas viene dada por
+
+\begin{equation}
+    [\eta_{(a)(b)}]=\begin{pmatrix}
+        0 & -1 & 0 & 0 \\
+        -1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 1 & 0 \\
+    \end{pmatrix}.
+\end{equation}
+
+Luego, la métrica $g^{\mu\nu}$ puede ser escrita en términos de los tensores $(l^\mu,n^\mu,m^\mu,\bar{m}^\mu)$ como sigue \cite{ThePotentialOfFildsInEinstein}
+
+\begin{equation}
+    g^{\mu\nu}=-l^\mu n^\nu-l^\nu n^\mu+m^\mu \bar{m}^\nu+m^\nu \bar{m}^\mu.
+    \label{eq:TetradMetric}
+\end{equation}
+
+Al realizar la transformación de coordenadas $x^\mu\rightarrow \tilde{x}^\mu$ cada uno de los tensores $(l^\mu,n^\mu,m^\mu,\bar{m}^\mu)$ transforman como 
+\begin{equation}
+    \tilde{Z}^\mu=\dfrac{\partial \tilde{x}^\mu}{\partial x^\nu}Z^\nu,
+    \label{eq:tetradTransformation}
+\end{equation}
+
+donde la nueva métrica $\tilde{g}$ vendrá dada por
+
+\begin{equation}
+    \tilde{g}^{\mu\nu}=-\tilde{l}^\mu \tilde{n}^\nu-\tilde{l}^\nu \tilde{n}^\mu+\tilde{m}^\mu \tilde{\bar{m}}^\nu+\tilde{m}^\nu \tilde{\bar{m}}^\mu.
+    \label{eq:TetradMetricComplex}
+\end{equation}
+
+Con lo anterior, es posible usar la métrica que describe el elemento de línea de la ecuación \eqref{eq:staticSolution} para obtener una métrica rotante en la gravedad dRGT.
+
+\section{Agujero negro rotante}
+
+\subsection{Paso 1: Métrica semilla en coordenadas Eddington-Finkelstein}
+    Como se comentó anteriormente, el paso 1 del algoritmo consiste en seleccionar una métrica "semilla" sobre la cual se aplicará el algoritmo. Esta métrica semilla es la métrica que describe el elemento de línea de la ecuación \eqref{eq:staticSolution} con $F(r)$ descrito en \eqref{eq:StaticF}.\\
+    
+    Para obtener la ecuación \eqref{eq:staticSolution} en las coordenadas de Enddington-Finkelstein se realiza el siguiente cambio de coordenadas
+    \begin{equation}
+        dt=du-\dfrac{dr}{F(r)},
+    \end{equation}
+    
+    con lo cual el elemento de línea queda escrito como
+    
+    \begin{equation}
+        ds^2=-F(r)du^2+2dudr+r^2d\Omega^2.
+        \label{eq:seedMetricEF}
+    \end{equation}
+    
+    Con lo cual la métrica $g_{\mu\nu}$ queda descrita, en su representación matricial, como sigue
+    
+    \begin{equation}
+        [g_{\mu\nu}]=\begin{pmatrix}
+            -F & 1 & 0   & 0 \\
+             1 & 0 & 0   & 0 \\
+             0 & 0 & r^2 & 0\\
+             0 & 0 & 0 & r^2\sin^2\theta
+        \end{pmatrix},
+    \end{equation}
+    
+    mientras que la métrica en su forma contravariante vendrá dada como sigue
+    
+    \begin{equation}
+        [g^{\mu\nu}]=\begin{pmatrix}
+             0 & 1 & 0   & 0 \\
+             1 & F & 0   & 0 \\
+             0 & 0 & \dfrac{1}{r^2} & 0\\
+             0 & 0 & 0 & \dfrac{1}{r^2\sin^2\theta}
+        \end{pmatrix}.
+    \end{equation}
+    
+\subsection{Paso 2: Formalismo de Newman-Penrose y transformación compleja de la función semilla $F(r)$}
+
+Para realizar la transformación compleja de la métrica es necesario realizar una correcta selección de las tetradas de Newman-Penrose, las tetradas quedan definidas como sigue \cite{AplicabilityOfJN}
+
+\begin{gather}
+    l^\mu = \delta^\mu_r, \\
+    n^\mu = \delta^\mu_u-\delta^\mu_r\dfrac{F}{2}, \\
+    m^\mu = \dfrac{1}{\sqrt{2}r}\left(\delta^\mu_\theta+ \dfrac{i}{\sin \theta}\delta^\mu_\phi\right),
+\end{gather}
+
+las cuales cumplen con las condiciones \eqref{eq:Nulity0}, \eqref{eq:Nulity1} y \eqref{eq:Unitarity}, además que también describe la métrica según la ecuación \eqref{eq:TetradMetric}.\\
+
+Tras definir las tetradas las coordenadas $u$ y $r$ puede tomar valores complejos, pero manteniendo que $l^\mu$ y $n^\mu$ reales, junto con $(m^\mu)^*=\bar{m}^\mu$ y reemplazando $F(r)\rightarrow \tilde{F}(r,\tilde{r})$, luego se realiza la siguiente transformación sobre las coordenadas \cite{AplicabilityOfJN},
+
+\begin{equation}
+    x^\mu\rightarrow\tilde{x}^\mu=x^\mu+ia\cos\theta(\delta^\mu_{\tilde{u}}-\delta^\mu_{\tilde{r}}),
+\end{equation}
+
+donde $a$ será identificada más adelante como el parámetro de espín.\\
+
+Usando la transformación de tetradas descrita por \eqref{eq:tetradTransformation}, se tienen las nuevas tetradas, escritas como sigue \cite{AplicabilityOfJN}
+
+\begin{gather}
+    \tilde{l}^\mu = \delta^\mu_r,\\
+    \tilde{n}^\mu = -\delta^\mu_u-\dfrac{1}{2}\tilde{F}(r,\tilde{r})\delta^\mu_r,\\
+    \tilde{m}^\mu = \dfrac{1}{\sqrt{2}(r+ia\cos\theta)}\left(ia\sin\theta\left(\delta^\mu_r+\delta^\mu_u\right)+\delta^\mu_\theta+\dfrac{i}{\sin\theta}\delta^\mu_\phi\right).
+\end{gather}
+
+Definiendo $\rho$ como 
+\begin{equation}
+    \rho^2 = |\tilde{r}|^2 = (r+ia\cos\theta)(r-ia\cos\theta)=r^2+a^2\cos^2\theta,
+\end{equation}
+
+y usando la ecuación \eqref{eq:TetradMetricComplex}, se obtienen los siguientes términos para la métrica $\tilde{g}^{\mu\nu}$
+
+\begin{equation}
+    [g^{\mu\nu}]=
+    \begin{pmatrix}
+        \dfrac{a^2\sin^2\theta}{\rho^2} & 1+ \dfrac{a^2\sin^2\theta}{\rho^2} &   0 &     \dfrac{a}{\rho^2}\\
+        1+ \dfrac{a^2\sin^2\theta}{\rho^2} &    \tilde{F}+\dfrac{a^2\sin^2\theta}{\rho^2} &   0 &   \dfrac{\alpha}{\rho^2}\\
+        0 &    0&   \dfrac{1}{\rho^2} &  0\\
+         \dfrac{a}{\rho^2}    & \dfrac{\alpha}{\rho^2}   &   0&   \dfrac{1}{\rho^2\sin^2\theta} \\
+    \end{pmatrix}
+    \label{eq:MetricaRotanteContravariante}
+\end{equation}
+
+Uno de los aspectos menos comprendidos sobre el algoritmo es la forma de realizar la transformación compleja de la función $F(r)$ de la semilla \cite{AnExtensionOfJN, JN-RotatingAndNUTCharged}. Si bien esta transformación es arbitraria se han cubierto diferentes transformaciones complejas, una transformación que ha funcionado para no solo el caso de Kerr, sino también para soluciones de tipo dS y AdS.\\
+
+La transformación de la función $F(r)$ va como sigue,
+
+\begin{equation}
+    \tilde{F}(r,\tilde{r})=1-\dfrac{2m(r)}{r}\left(\dfrac{r^2}{\rho^2}\right),
+\end{equation}
+
+donde $m(r)$ es la función de masa de la función raíz $F(r)$ como una función de r. Con los elementos obtenidos anteriormente, resta encontrar la métrica en su forma covariante ($\tilde{g}_{\mu\nu}$) y reescribirla en coordenadas Boyer-Lindquist.
+
+\subsection{Paso 3: Reescribir la métrica en coordenadas de Boyer-Lindquist}
+
+La métrica en su forma covariante es el tensor $g_{\mu\nu}$ tal que $g^{\mu\nu}g_{\mu\nu}=\mathbb{I}$, en términos de la representación matricial es la matríz inversa de la ecuación \eqref{eq:MetricaRotanteContravariante}. Por tanto, el tensor $g_{\mu\nu}$ viene dado por
+
+\begin{equation}
+    [g_{\mu\nu}]=\begin{pmatrix}- \tilde{F} & 1 & 0 & a \left(\tilde{F} - 1\right) \sin^{2}{\theta}\\1 & 0 & 0 & - a \sin^{2}{\theta}\\0 & 0 & \rho^{2} & 0\\a \left(\tilde{F} - 1\right) \sin^{2}{\theta} & - a \sin^{2}{\theta} & 0 & \left(\rho^{2} + (2-\tilde{F}) a^{2} \sin^{2}{\theta}\right) \sin^{2}{\theta}\end{pmatrix},
+\end{equation}
+
+o escrito en términos del elemento de línea queda como
+
+\begin{equation}
+    \begin{split}
+    d\tilde{s}^2=-\tilde{F}du^2+2dudr+\rho^2d\theta^2+\left(\rho^{2} + (\tilde{F}-2) a^{2} \sin^{2}{\theta}\right) \sin^{2}{\theta}d\phi^2\\
+    +2a \left(\tilde{F} - 1\right) \sin^{2}{\theta}dud\phi-2a\sin^2\theta (\tilde{F}-2) drd\phi
+    \label{eq:LineElementRotating}
+\end{split}
+\end{equation}
+
+Para realizar la transformación a coordenadas en Boyer-Lindquist es necesario realizar los siguientes cambios sobre los diferenciales \cite{AplicabilityOfJN}
+
+\begin{gather}
+    du = dt+g(r)dr, \label{eq:du}\\
+    d\phi = d\phi+h(r)dr \label{eq:dphi},
+\end{gather}
+
+con $g(r)$ y $h(r)$ funciones ajustadas de tal manera que $g_{r\phi}=g_{tr}=0$. Reemplazando los diferenciales en \eqref{eq:du} y \eqref{eq:dphi} en la ecuación \eqref{eq:LineElementRotating} se obtiene que las funciones $g$ y $h$ deben ser como sigue 
+
+\begin{gather}
+    g(r) =  \dfrac{r^2+a^2}{\Delta}, \label{eq:gJN}\\
+    h(r) =  \dfrac{a}{\Delta}. \label{eq:hJN}
+\end{gather}
+
+con 
+
+\begin{equation}
+    \Delta = \rho^2\tilde{F}+a^2\sin^2\theta.
+\end{equation}
+
+Luego, usando las ecuaciones \eqref{eq:gJN} y \eqref{eq:hJN} se obtiene el siguiente elemento de línea para la solución rotante
+
+\begin{equation}
+        d\tilde{s}^2= -\tilde{F}dt^2+\dfrac{\rho^2}{\Delta}dr^2+\rho^2d\theta^2+(\rho^2+(\tilde{F}-2)a^2\sin^2\theta)\sin^2\theta d\phi^2 + 2a\sin^2\theta d\phi dt.
+        \label{eq:tildeElementoDeLinea}
+\end{equation}
+
+La representación matricial de la métrica resultante para la solución rotante vendrá expresada como
+
+\begin{equation}
+    [\tilde{g}_{\mu\nu}]=
+    \begin{pmatrix}
+        -\tilde{F}& 0 & 0 & (F-1)a\sin^2\theta\\
+        0&  \dfrac{\rho^2}{\Delta}& 0&  0 \\
+        0&  0&  \rho^2& 0\\
+        (F-1)a\sin^2\theta&  0&  0&  (\rho^2+(\tilde{F}-2)a^2\sin^2\theta)\sin^2\theta\\  \label{eq:TildeMétrica}
+    \end{pmatrix}.
+\end{equation}
+
+\section{Métrica de la solución rotante}
+
+Se aplicó el algoritmo de Janis Newman a la solución estática de la ecuación \eqref{eq:staticSolution}, donde la función semilla viene dada por la ecuación \eqref{eq:StaticF}. Para el caso de la solución \eqref{eq:StaticF} se tiene que
+
+\begin{equation}
+    m(r)=M+\dfrac{\Lambda}{6}r^3-\dfrac{\gamma}{2}r^2-\dfrac{\zeta}{2}r.
+\end{equation}
+
+Por tanto, $\tilde{F}(r,\tilde{r})$ viene dada por
+
+\begin{equation}
+    \tilde{F}(r,\tilde{r})=1-\dfrac{1}{\rho^2}\left(2Mr+\dfrac{\Lambda}{3}r^4-\gamma r^3-\zeta r^2\right).
+    \label{eq:FTilde}
+\end{equation}
+
+Reemplazando la ecuación \eqref{eq:FTilde} en \eqref{eq:tildeElementoDeLinea} se obtiene el elemento de linea para el agujero negro rotante en gravedad dRGT, el cual viene dado como sigue
+
+\begin{equation}
+\begin{split}
+    d\tilde{s}^2= -\left(1-\dfrac{1}{\rho^2}\left(2Mr+\dfrac{\Lambda}{3}r^4-\gamma r^3-\zeta r^2\right)\right)dt^2+\dfrac{\rho^2}{\Delta}dr^2+\rho^2d\theta^2\\
+    +\left[\rho^2-\left(1+\dfrac{1}{\rho^2}\left(2Mr+\dfrac{\Lambda}{3}r^4-\gamma r^3-\zeta r^2\right)\right)a^2\sin^2\theta\right]\sin^2\theta d\phi^2\\
+    -\dfrac{2a\sin^2\theta}{\rho^2}\left(2Mr+\dfrac{\Lambda}{3}r^4-\gamma r^3-\zeta r^2\right) d\phi dt,
+\end{split}
+        \label{eq:ElementoDeLineaSolucionRotante}
+\end{equation}
+
+donde $\Delta = \rho^2 - 2Mr - \dfrac{\Lambda}{3}r^4+\gamma r^3+\zeta r^2+a^2\sin^2\theta$, usando la definición de $\rho^2$, se obtiene la siguiente expresión para $\Delta$
+
+
+\begin{equation}
+    \Delta = -\dfrac{\Lambda}{3}r^4+\gamma r^3 + (\zeta+1)r^2
+\end{equation}
+
+
+Para el elemento de linea mostrado en la ecuación \eqref{eq:ElementoDeLineaSolucionRotante} es posible corroborar que cuando el parámetro de espín del agujero negro $a$ tiende a cero, se recupera el elemento de linea de la solución estática, es decir, \eqref{eq:staticSolution} con $F(r)$ definido en \eqref{eq:StaticF}.
+
+\section{Horizonte de eventos}
+
+
+\section{Ergosfera}
+
+
+\section{Gravedad superficial}
