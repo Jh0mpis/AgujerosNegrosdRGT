@@ -43,6 +43,22 @@ def findSolutions(f,maxNumOfSols,domAndArray,imgAndArray):
         solutions[index][1].append(j)
   return solutions
 
-def graf(f,alphaVal,betaVal,radios,mVal=1,cVal=1,m_gVal=1):
-  return radios,[subs(f,(m,mVal),(c,cVal),(m_g,m_gVal),(alpha,alphaVal),(beta,betaVal),(r,rad)) for rad in radios]
+def graf(f,alphaVal,betaVal,radios,coords,params,mVal=1,cVal=1,m_gVal=1):
+    return radios,[subs(f,(params[1],mVal),(params[2],cVal),(params[0],m_gVal),(params[3],alphaVal),(params[4],betaVal),(coords[1],rad)) for rad in radios]
   
+def plot(sols, alphaVal, MVal):
+    mp.figure(figsize=(4.8, 4.8))
+    color = "kbgmr"
+    labels = ["0 soluciones","1 solución","2 soluciones","3 soluciones","4 soluciones"]
+    for i in range(len(sols)):
+        mp.scatter(sols[i][0],sols[i][1],s=2,c=color[i], label=labels[i])
+
+    mp.xlabel(r"$\alpha$")
+    mp.ylabel(r"$\beta$")
+
+    mp.title(f"Espacio ($\\alpha,\\beta$) de soluciónes del agujero\nnegro rotante ($m_g=1$, $\\epsilon=1$, $a={alphaVal}$ y $M={MVal}$).")
+
+    mp.legend(bbox_to_anchor=(1,1))
+    mp.show()
+   
+print("Module FuncionesUtiles was charged")
