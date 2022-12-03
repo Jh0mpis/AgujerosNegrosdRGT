@@ -4,6 +4,8 @@ El siguiente trabajo es el resultado del estudio de la teoría de gravedad masiv
 
 Para las dos soluciones se estudió el horizonte de eventos y su comportamiento, la gravedad superficial, la temperatura y la entropía; adicionalmente, se encontró la singularidad esencial del agujero negro estático, mientras que en el agujero negro rotante se estudió la ergosfera y el arrastre inercial, aspectos que no están presentes en la solución estática.
 
+---
+
 # Rotating black hole in dRGT massive gravity
 
 The following work is a result from the study of massive gravity proposed by Claudia de Rham, Gregory Gabadadze and Andrew Tolley, a theory that is an alternative for the general relativity, and two possible types of black holes. The first black hole obtained from the theory's field equations and corresponds to a static  ( Schwarzschild type) line element. The second black hole, is a proposal of a rotating black hole in the massive gravity theory obtained by using the well known Janis-Newman algorithm.
