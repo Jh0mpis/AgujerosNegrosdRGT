@@ -60,5 +60,24 @@ def plot(sols, alphaVal, MVal):
 
     mp.legend(bbox_to_anchor=(1,1))
     mp.show()
+    
+def Ergosphere(Ergo,FHorizonte0,thetas,alphaVal,betaVal,aVal,coords,params,Kerr = False):
+    ergosphere = []
+    m_gVal = 1
+    if Kerr:
+        m_gVal = 0
+    for angle in thetas:
+        ergoSols=[i if i!=None else 0 for i in solve(subs(Ergo,(params[0],m_gVal),(params[2],1),(params[3],alphaVal),(params[4],betaVal),(coords[2],angle),(params[1],1),(params[5],aVal)))]
+        ergoSols.sort()
+        ergosphere.append(ergoSols[-1])
+    rHorizon = [i if i!=None else 0 for i in solve(subs(FHorizonte0,(params[0],m_gVal),(params[2],1),(params[3],alphaVal),(params[4],betaVal),(params[1],1),(params[5],aVal)))]
+    rHorizon.sort()
+    return np.array(ergosphere)*np.cos(thetas), np.array(ergosphere)*np.sin(thetas), rHorizon[-1]
+
+def temp(params, rads, alps, bets, aes):
+    Temp = []
+    for rs in rads:
+        Temp.append(((1/(4*np.pi))*(params[3]*(3*rs**4-4*rs**3+rs*2)+params[4]*(3*rs**4-6*rs**3+3*rs*2)+(3*rs**4-2*rs**3+rs**2-params[5]**2))/((rs**2+params[5]**2)*rs)).subs(params[3], alps).subs(params[4], bets).subs(params[5], aes))
+    return np.array(Temp)
    
 print("Module FuncionesUtiles was charged")
